@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, FlatList, Button } from "react-native";
 import BlogContext from "../contexts/BlogContext";
 
 const IndexScreen = () => {
-  const { data, addBlogPosts } = useContext(BlogContext);
+  const { data, addBlogPost } = useContext(BlogContext);
 
   return (
     <View style={style.container}>
@@ -15,7 +15,7 @@ const IndexScreen = () => {
           return <Text>{item.title}</Text>;
         }}
       />
-      <Button title="Add" onPress={addBlogPosts}/>
+      <Button title="Add" onPress={addBlogPost} />
     </View>
   );
 };
