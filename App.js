@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { BlogProvider } from "./src/contexts/BlogContext";
+import { Provider as BlogProvider } from "./src/contexts/BlogContext";
 import IndexScreen from "./src/screens/IndexScreen";
 
 const Stack = createNativeStackNavigator();
