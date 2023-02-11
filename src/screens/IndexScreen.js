@@ -1,22 +1,31 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet, FlatList, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { Context as BlogContext } from "../contexts/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
 const IndexScreen = () => {
-  const { state, addBlogPost } = useContext(BlogContext);
+  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
 
   return (
     <>
       <Button title="Add" onPress={addBlogPost} />
       <FlatList
         data={state}
-        keyExtractor={(blogPosts) => blogPosts.title}
+        keyExtractor={(blogPosts) => blogPosts.id}
         renderItem={({ item }) => {
           return (
             <View style={style.row}>
               <Text style={style.title}>{item.title}</Text>
-              <Feather name="trash" size={24} color="black" />
+              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                <Feather name="trash" size={24} color="black" />
+              </TouchableOpacity>
             </View>
           );
         }}
