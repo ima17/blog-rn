@@ -13,6 +13,16 @@ import { Feather } from "@expo/vector-icons";
 const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
 
+  React.useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+          <Feather name="plus" size={24} color="black" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
+
   return (
     <>
       <Button title="Add" onPress={addBlogPost} />
