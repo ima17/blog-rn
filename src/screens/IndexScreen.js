@@ -11,7 +11,7 @@ import { Context as BlogContext } from "../contexts/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
+  const { state, deleteBlogPost } = useContext(BlogContext);
 
   React.useEffect(() => {
     navigation.setOptions({
@@ -25,7 +25,6 @@ const IndexScreen = ({ navigation }) => {
 
   return (
     <>
-      <Button title="Add" onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={(blogPosts) => blogPosts.id}
