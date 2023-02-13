@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider as BlogProvider } from "./src/contexts/BlogContext";
 import CreateScreen from "./src/screens/CreateScreen";
+import EditScreen from "./src/screens/EditScreen";
 import IndexScreen from "./src/screens/IndexScreen";
 import ShowScreen from "./src/screens/ShowScreen";
 
@@ -24,6 +25,11 @@ const App = () => {
         <Stack.Screen
           name="Create"
           component={CreateScreen}
+          options={{ title: "Blogs" }}
+        />
+        <Stack.Screen
+          name="Edit"
+          component={EditScreen}
           options={{ title: "Blogs" }}
         />
       </Stack.Navigator>
