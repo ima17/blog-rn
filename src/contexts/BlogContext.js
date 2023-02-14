@@ -52,5 +52,12 @@ const editBlogPost = (dispatch) => {
 export const { Provider, Context } = createDataContext(
   blogReducer,
   { addBlogPost, deleteBlogPost, editBlogPost },
-  [{ title: "Test", content: "This is for test the application", id: "1" }]
+  [
+    {
+      title: "What is Blogiing?",
+      content:
+        "Blogging has become a popular way for individuals and businesses to share their ideas, opinions, and expertise with the world. A blog is essentially an online journal or diary that can cover any topic and be updated regularly with new content. Many people enjoy blogging because it allows them to express themselves, connect with others who share similar interests, and potentially even make money. Blogging can be a great way to build a following, establish yourself as an authority in your field, and provide value to your readers. With the right approach and commitment, anyone can start a successful blog and make a positive impact in their niche.",
+      id: "1",
+    },
+  ]
 );

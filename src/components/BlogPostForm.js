@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Text, TextInput, View, StyleSheet, Button } from "react-native";
+import {
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+  Button,
+  ScrollView,
+} from "react-native";
 
 const BlogPostForm = ({
   onSubmit,
@@ -12,26 +19,30 @@ const BlogPostForm = ({
   const [content, setContent] = useState(initialValues.content);
 
   return (
-    <View style={styles.conatainer}>
-      <Text style={styles.label}>Enter Title:</Text>
-      <TextInput
-        style={styles.input}
-        value={title}
-        onChangeText={(text) => setTitle(text)}
-      />
-      <Text style={styles.label}>Enter Content:</Text>
-      <TextInput
-        style={styles.input}
-        value={content}
-        onChangeText={(text) => setContent(text)}
-      />
-      <Button
-        title="Save blog post"
-        onPress={() => {
-          onSubmit(title, content);
-        }}
-      />
-    </View>
+    <ScrollView automaticallyAdjustKeyboardInsets={true}>
+      <View style={styles.conatainer}>
+        <Text style={styles.label}>Enter Title:</Text>
+        <TextInput
+          style={styles.input}
+          value={title}
+          onChangeText={(text) => setTitle(text)}
+        />
+        <Text style={styles.label}>Enter Content:</Text>
+        <TextInput
+          multiline={true}
+          numberOfLines={2}
+          style={styles.input}
+          value={content}
+          onChangeText={(text) => setContent(text)}
+        />
+        <Button
+          title="Save blog post"
+          onPress={() => {
+            onSubmit(title, content);
+          }}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
