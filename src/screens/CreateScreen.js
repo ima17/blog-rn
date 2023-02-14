@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { View, Text, TextInput, StyleSheet, Button } from "react-native";
+import { View, Text, TextInput, StyleSheet, Button,TouchableOpacity } from "react-native";
 import { Context as BlogContext } from "../contexts/BlogContext";
 
 const CreateScreen = ({ navigation }) => {
@@ -36,7 +36,7 @@ const CreateScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   conatainer: {
-    margin: 5,
+    margin: 10,
   },
   input: {
     borderWidth: 1,
