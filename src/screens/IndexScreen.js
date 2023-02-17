@@ -11,7 +11,11 @@ import { Context as BlogContext } from "../contexts/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, deleteBlogPost } = useContext(BlogContext);
+  const { state, deleteBlogPost, getBlogPosts } = useContext(BlogContext);
+
+  React.useEffect(() => {
+    getBlogPosts();
+  }, []);
 
   React.useEffect(() => {
     navigation.setOptions({
