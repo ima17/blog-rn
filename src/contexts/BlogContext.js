@@ -1,7 +1,11 @@
+import axios from "axios";
+import jsonServer from "../api/jsonServer";
 import createDataContext from "./createDataContext";
 
 const blogReducer = (state, action) => {
   switch (action.type) {
+    case "get_blogposts":
+      return action.payload;
     case "add_blogpost":
       return [
         ...state,
@@ -20,6 +24,14 @@ const blogReducer = (state, action) => {
     default:
       return state;
   }
+};
+
+const getBlogPosts = (dispatch) => {
+  return async () => {
+    const response = await jsonServer.get("/blogPosts");
+
+    dispatch({ type: "get_blogposts", payload: response.data });
+  };
 };
 
 const addBlogPost = (dispatch) => {
@@ -52,12 +64,5 @@ const editBlogPost = (dispatch) => {
 export const { Provider, Context } = createDataContext(
   blogReducer,
   { addBlogPost, deleteBlogPost, editBlogPost },
-  [
-    {
-      title: "What is Blogiing?",
-      content:
-        "Blogging has become a popular way for individuals and businesses to share their ideas, opinions, and expertise with the world. A blog is essentially an online journal or diary that can cover any topic and be updated regularly with new content. Many people enjoy blogging because it allows them to express themselves, connect with others who share similar interests, and potentially even make money. Blogging can be a great way to build a following, establish yourself as an authority in your field, and provide value to your readers. With the right approach and commitment, anyone can start a successful blog and make a positive impact in their niche.",
-      id: "1",
-    },
-  ]
+  []
 );
