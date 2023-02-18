@@ -15,6 +15,12 @@ const IndexScreen = ({ navigation }) => {
 
   React.useEffect(() => {
     getBlogPosts();
+
+    const listner = navigation.addListener("focus", () => {
+      getBlogPosts();
+    });
+
+    return () => listner.remove();
   }, []);
 
   React.useEffect(() => {
